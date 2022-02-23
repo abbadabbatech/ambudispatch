@@ -1,8 +1,11 @@
+import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/upload_media.dart';
 import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -14,6 +17,7 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   String pdfFile;
+  String uploadedFileUrl = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -35,8 +39,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   borderRadius: 30,
                   borderWidth: 1,
                   buttonSize: 60,
-                  icon: Icon(
-                    Icons.photo_camera,
+                  icon: FaIcon(
+                    FontAwesomeIcons.filePdf,
                     color: Colors.black,
                     size: 30,
                   ),
@@ -53,6 +57,49 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   'Nothing Yet',
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1,
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                child: InkWell(
+                  onTap: () async {
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      allowPhoto: true,
+                      allowVideo: true,
+                    );
+                    if (selectedMedia != null &&
+                        validateFileFormat(
+                            selectedMedia.storagePath, context)) {
+                      showUploadMessage(
+                        context,
+                        'Uploading file...',
+                        showLoading: true,
+                      );
+                      final downloadUrl = await uploadData(
+                          selectedMedia.storagePath, selectedMedia.bytes);
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      if (downloadUrl != null) {
+                        setState(() => uploadedFileUrl = downloadUrl);
+                        showUploadMessage(
+                          context,
+                          'Success!',
+                        );
+                      } else {
+                        showUploadMessage(
+                          context,
+                          'Failed to upload media',
+                        );
+                        return;
+                      }
+                    }
+                  },
+                  child: Icon(
+                    Icons.linked_camera,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                ),
               ),
             ],
           ),
