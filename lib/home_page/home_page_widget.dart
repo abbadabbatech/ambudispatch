@@ -26,6 +26,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
@@ -45,6 +46,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     setState(() {});
                   },
                 ),
+              ),
+              Text(
+                valueOrDefault<String>(
+                  pdfFile,
+                  'Nothing Yet',
+                ),
+                style: FlutterFlowTheme.of(context).bodyText1,
               ),
             ],
           ),
