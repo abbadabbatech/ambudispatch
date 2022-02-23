@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "145789747205",
+    "firebase_url": "https://ambudispatch-143720.firebaseio.com",
+    "project_id": "ambudispatch-143720",
+    "storage_bucket": "ambudispatch-143720.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145789747205:android:8f03eb4c6352556b179c6c",
+        "android_client_info": {
+          "package_name": "tech.abbadabba.ambudispatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145789747205-e8c9355h28dolj2gqt7mc10mqb363c2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.abbadabba.ambudispatch",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "145789747205-ie1j1mrcv0ngrpisi1mttc0okbgbqgat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKbs-6E2ZC6Hu04k0XNev6uL6Imchl_UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145789747205-ie1j1mrcv0ngrpisi1mttc0okbgbqgat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "145789747205-sbkdul8ud2qjopb3fcs77srie83opt6p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "tech.abbadabba.ambudispatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
