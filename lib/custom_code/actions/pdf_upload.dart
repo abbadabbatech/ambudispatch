@@ -2,11 +2,13 @@
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
+import 'index.dart'; // Imports other custom actions
 import 'package:flutter/material.dart';
 // Begin custom action code
+//import 'package:hail_repair/auth/auth_util.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:io';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:mime_type/mime_type.dart';
@@ -18,9 +20,11 @@ Future<String> pdfUpload() async {
     allowedExtensions: ['pdf'],
   );
   if (result != null) {
-    File file = File(result.files.single.path);
-
-    final downloadUrl = await uploadData(file.path, file.readAsBytesSync());
+    //File file = File(result.files.single.path);
+    final fileBytes = result.files.single.bytes;
+    final timestamp = DateTime.now().microsecondsSinceEpoch;
+    final downloadUrl =
+        await uploadData('estimates/uploads/$timestamp.pdf', fileBytes);
 
     if (downloadUrl != null) {
       return downloadUrl;
