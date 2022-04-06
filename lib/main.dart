@@ -5,17 +5,18 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 
+import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:ambu_dispatch/login/login_widget.dart';
 import 'package:ambu_dispatch/home_page/home_page_widget.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   await FlutterFlowTheme.initialize();
+
   runApp(MyApp());
 }
 
