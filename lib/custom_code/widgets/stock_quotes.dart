@@ -1,3 +1,4 @@
+
 // Automatic FlutterFlow imports
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
@@ -11,6 +12,7 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 //import 'package:flutter/material.dart';
 // Begin custom widget code
+
 import 'dart:io';
 import 'dart:convert';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -20,7 +22,7 @@ import 'dart:typed_data';
 
 import 'package:firebase_storage/firebase_storage.dart';
 //import '../../backend/firebase_storage/storage.dart';
-//import 'package:mime_type/mime_type.dart';
+
 //import '../../flutter_flow/flutter_flow_icon_button.dart';
 //import '../../flutter_flow/flutter_flow_theme.dart';
 //import '../../flutter_flow/upload_media.dart';
@@ -46,8 +48,8 @@ class _StockQuotesState extends State<StockQuotes> {
 
   @override
   void initState() {
-    channel = IOWebSocketChannel.connect(
-        'wss://ws.finnhub.io?token=c96b3iiad3icjtt5n0a0');
+
+    channel = IOWebSocketChannel.connect('wss://ws.finnhub.io?token=c96b3iiad3icjtt5n0a0');
     channel.sink.add(json.encode({'type': 'subscribe', 'symbol': 'AAPL'}));
     channel.sink.add(json.encode({'type': 'subscribe', 'symbol': 'AMZN'}));
     channel.sink.add(json.encode({'type': 'subscribe', 'symbol': 'GOOG'}));
@@ -75,5 +77,6 @@ class _StockQuotesState extends State<StockQuotes> {
         builder: (context, snapshot) {
           return Text(snapshot.data ? '${snapshot.data}' : '');
         });
+
   }
 }

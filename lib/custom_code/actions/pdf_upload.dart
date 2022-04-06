@@ -1,4 +1,6 @@
 // Automatic FlutterFlow imports
+import '../../auth/auth_util.dart';
+
 import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
@@ -20,11 +22,13 @@ Future<String> pdfUpload() async {
     allowedExtensions: ['pdf'],
   );
   if (result != null) {
+
     //File file = File(result.files.single.path);
     final fileBytes = result.files.single.bytes;
     final timestamp = DateTime.now().microsecondsSinceEpoch;
     final downloadUrl =
         await uploadData('estimates/uploads/$timestamp.pdf', fileBytes);
+
 
     if (downloadUrl != null) {
       return downloadUrl;
